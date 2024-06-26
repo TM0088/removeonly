@@ -2,9 +2,9 @@
 
 (function () {
     // if re-run on the same page, remove the previous instance
-    if (document.getElementById("mainonly")) {
-        document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
-    }
+    // if (document.getElementById("mainonly")) {
+    //    document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+    //}
 
     var selectedElement = document.body;
     var lastStrategy = null; // which strategy is used to select the element
