@@ -1,10 +1,10 @@
-// A JavaScript bookmarklet designed to highlight and remove a specific element on a webpage, effectively hiding all other elements.
+// A JavaScript bookmarklet designed to isolate and highlight a specific element on a webpage, effectively hiding all other elements.
 
 (function () {
     // if re-run on the same page, remove the previous instance
-    // if (document.getElementById("mainonly")) {
-    //    document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
-    //}
+    if (document.getElementById("mainonly")) {
+        document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+    }
 
     var selectedElement = document.body;
     var lastStrategy = null; // which strategy is used to select the element
@@ -70,7 +70,7 @@
                 selectedElement.removeAttribute("id");
             } else {
                 // class
-                selectedElement.classList.remove("mainonly");
+                selectedElement.classList.remove("na");
             }
 
             // select the new selected element
@@ -142,7 +142,7 @@
                 selectedElement.removeAttribute("id");
             } else {
                 // class
-                selectedElement.classList.remove("mainonly");
+                selectedElement.classList.remove("na");
             }
             removeParents();
         } else if (event.key === ',' || event.key === '-') {
