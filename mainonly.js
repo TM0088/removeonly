@@ -1,4 +1,4 @@
-// A JavaScript bookmarklet designed to isolate and highlight a specific element on a webpage, effectively hiding all other elements.
+// A JavaScript bookmarklet designed to highlight and remove a specific element on a webpage, effectively hiding all other elements.
 
 (function () {
     // if re-run on the same page, remove the previous instance
@@ -99,10 +99,10 @@
         markParents();
         if (lastStrategy === 'id') {
             // id
-            style.textContent = `* { visibility: hidden; } #mainonly, #mainonly *, .mainonly_parents { visibility: visible; }`;
+            style.textContent = `* { visibility: visible; } #mainonly, #mainonly *, .mainonly_parents { visibility: hidden; }`;
         } else {
             // class
-            style.textContent = `* { visibility: hidden; } .mainonly, .mainonly *, .mainonly_parents { visibility: visible; }`;
+            style.textContent = `* { visibility: visible; } .mainonly, .mainonly *, .mainonly_parents { visibility: hidden; }`;
         }
         cleanupEventListeners();
         hideGuideOverlay();
