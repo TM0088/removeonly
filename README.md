@@ -1,6 +1,6 @@
 # removeonly
 ```JavaScript
-javascript:function()%7B!function()%7Bfunction%20e(e)%7Bvar%20t%3De.target%7C%7Ce.srcElement%3Bt.style.outline%3D%222px%20solid%20red%22%2CprevEl%3Dt%7Dfunction%20t(e)%7B(e.target%7C%7Ce.srcElement).style.outline%3D%22%22%7Dfunction%20n(e)%7B(e.target%7C%7Ce.srcElement).style.display%3D%22none%22%7Ddocument.addEventListener(%22mouseover%22%2Ce)%2Cdocument.addEventListener(%22mouseout%22%2Ct)%2Cdocument.addEventListener(%22click%22%2Cn)%2Cdocument.addEventListener(%22keydown%22%2C(function(o)%7B%22Escape%22%3D%3D%3Do.key%26%26(prevEl.style.outline%3D%22%22%2Cdocument.removeEventListener(%22mouseover%22%2Ce)%2Cdocument.removeEventListener(%22mouseout%22%2Ct)%2Cdocument.removeEventListener(%22click%22%2Cn))%7D))%7D()%3B%7D)()%3B
+javascript:(function()%7B!function()%7Bfunction%20e(e)%7Bvar%20t%3De.target%7C%7Ce.srcElement%3Bt.style.outline%3D%222px%20solid%20red%22%2CprevEl%3Dt%7Dfunction%20t(e)%7B(e.target%7C%7Ce.srcElement).style.outline%3D%22%22%7Dfunction%20n(e)%7B(e.target%7C%7Ce.srcElement).style.display%3D%22none%22%7Ddocument.addEventListener(%22mouseover%22%2Ce)%2Cdocument.addEventListener(%22mouseout%22%2Ct)%2Cdocument.addEventListener(%22click%22%2Cn)%2Cdocument.addEventListener(%22keydown%22%2C(function(o)%7B%22Escape%22%3D%3D%3Do.key%26%26(prevEl.style.outline%3D%22%22%2Cdocument.removeEventListener(%22mouseover%22%2Ce)%2Cdocument.removeEventListener(%22mouseout%22%2Ct)%2Cdocument.removeEventListener(%22click%22%2Cn))%7D))%7D()%3B%7D)()%3B
 ```
 # mainonly
 ```JavaScript
