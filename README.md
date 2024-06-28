@@ -23,6 +23,7 @@ javascript:(function(){document.getElementById("mainonly")&&document.dispatchEve
 
 ## Tools
 
+- [codebeautifyminifier](https://codebeautify.org/minify-js)
 - [minifier](https://www.toptal.com/developers/javascript-minifier)
 - [Bookmarklet Maker](https://caiorss.github.io/bookmarklet-maker/)
 
