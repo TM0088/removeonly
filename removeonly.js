@@ -1,4 +1,6 @@
 (function () {
+    const h = [];
+
 	function onMouseOver(event) {
 		var elem = event.target || event.srcElement;
 		elem.style.outline = '2px solid red';
@@ -13,6 +15,7 @@
 	function onRClick(event) {
         event.preventDefault();
 		s.style.display = 'none';
+        h.push(s);
 	}
 
 	function onClick(event) {
@@ -26,9 +29,16 @@
             event.preventDefault();
 			s.style.outline = '';
             cleanupEventListeners();
-		} else if (event.key === "Escape") {
+		} else if (event.key === "F2") {
             event.preventDefault();
             s.style.display = 'none';
+            h.push(s);
+        } else if (event.key === "Escape") {
+            event.preventDefault();
+            let hl = h.length;
+            for (i = 0; i < hl; i++) {
+                h.pop().style.display = '';
+            }
         }
 	}
 
@@ -50,7 +60,7 @@
     function cleanupEventListeners() {
         document.removeEventListener("mouseover", onMouseOver);
         document.removeEventListener("mouseout", onMouseOut);
-        document.removeEventListener("click", onClick);
+        document.removeEventListener("click", onRClick);
         document.removeEventListener("wheel", onWheel);
     }
 
