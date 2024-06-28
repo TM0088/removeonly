@@ -6,21 +6,21 @@
         document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
     }
 
-    var selectedElement = document.body;
+    var s = document.body;
     var lastStrategy = null; // which strategy is used to select the element
 
     // strategy overview
     // 1. if the selected element doesn't has `id`, then use `id`
     // (since it fixed the issue of pure text nodes can not be styled with CSS)
     // 2. otherwise fallback to use `class`
-    if (!selectedElement.id) {
+    if (!s.id) {
         // id
         lastStrategy = 'id';
-        selectedElement.id = "mainonly";
+        s.id = "mainonly";
     } else {
         // class
         lastStrategy = 'class';
-        selectedElement.classList.add("mainonly");
+        s.classList.add("mainonly");
     }
 
     const style = document.head.appendChild(document.createElement("style"));
@@ -67,23 +67,23 @@
             // deselect previous element
             if (lastStrategy === 'id') {
                 // id
-                selectedElement.removeAttribute("id");
+                s.removeAttribute("id");
             } else {
                 // class
-                selectedElement.classList.remove("mainonly");
+                s.classList.remove("mainonly");
             }
 
             // select the new selected element
-            selectedElement = element;
+            s = element;
 
-            if (!selectedElement.id) {
+            if (!s.id) {
                 // id
                 lastStrategy = 'id';
-                selectedElement.id = "mainonly";
+                s.id = "mainonly";
             } else {
                 // class
                 lastStrategy = 'class';
-                selectedElement.classList.add("mainonly");
+                s.classList.add("mainonly");
             }
         }
     }
@@ -114,7 +114,7 @@
     }
 
     function markParents() {
-        var parents = selectedElement;
+        var parents = s;
         while (parents.parentElement) {
             parents = parents.parentElement;
             parents.classList.add("mainonly_parents");
@@ -139,33 +139,47 @@
             // Restore the selected element to its original state
             if (lastStrategy === 'id') {
                 // id
-                selectedElement.removeAttribute("id");
+                s.removeAttribute("id");
             } else {
                 // class
-                selectedElement.classList.remove("mainonly");
+                s.classList.remove("mainonly");
             }
             removeParents();
         } else if (event.key === ',' || event.key === '-') {
             // up, select parent element
-            outlineElement(selectedElement.parentElement);
+            outlineElement(s.parentElement);
         } else if (event.key === '.' || event.key === '=') {
             // down, select first child element
-            var childElement = selectedElement.querySelector(":hover");
+            var childElement = s.querySelector(":hover");
             if (childElement) {
                 outlineElement(childElement);
             }
         }
     }
 
+	function onRClick(event) {
+        event.preventDefault();
+        style.remove();
+        document.removeEventListener("keydown", onKeydown);
+        cleanupEventListeners();
+        hideGuideOverlay();
+        if (lastStrategy === 'id') {
+            s.removeAttribute("id");
+        } else {
+            s.classList.remove("mainonly");
+        }
+        removeParents();
+	}
+
     /** @param {WheelEvent} event */
     function onWheel(event) {
         event.preventDefault();
         if (event.deltaY < 0) {
             // Scrolling up, select parent element
-            outlineElement(selectedElement.parentElement);
+            outlineElement(s.parentElement);
         } else {
             // Scrolling down, select child element containing the cursor
-            var childElement = selectedElement.querySelector(":hover");
+            var childElement = s.querySelector(":hover");
             if (childElement) {
                 outlineElement(childElement);
             }
@@ -180,6 +194,7 @@
 
     document.addEventListener("mouseover", onMouseOver);
     document.addEventListener("click", onClick);
+    document.addEventListener("contextmenu", onRClick);
     document.addEventListener("wheel", onWheel, { passive: false });
     document.addEventListener("keydown", onKeydown);
 })();
