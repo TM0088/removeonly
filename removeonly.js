@@ -10,12 +10,12 @@
 		elem.style.outline = '';
 	}
 
-	function onClick(event) {
+	function onRClick(event) {
         event.preventDefault();
 		s.style.display = 'none';
 	}
 
-	function onRClick(event) {
+	function onClick(event) {
         event.preventDefault();
         s.style.outline = '';
         cleanupEventListeners();
