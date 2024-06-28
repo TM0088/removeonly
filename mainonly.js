@@ -27,7 +27,7 @@
     style.textContent = "#mainonly { outline: 2px solid red; }  .mainonly { outline: 2px solid red; }";
 
     // selection guide overlay
-    const guideTextCn = '正在选择元素。按 <kbd>Esc</kbd> 键取消选择。向下滚动，或按下 <kbd>=</kbd>/<kbd>.</kbd> 键缩小选区。向上滚动，或按下 <kbd>-</kbd>/<kbd>,</kbd> 键扩大选区。'
+    const guideTextCn = '正在選擇元素。按 <kbd>Esc</kbd> 鍵取消選擇。向下滾動，或按下 <kbd>=</kbd>/<kbd>.</kbd> 鍵縮小選區。向上滾動，或按下 <kbd>-</kbd>/<kbd>,</kbd> 鍵擴大選區。'
     const guideTextEn = 'Selecting element. Press <kbd>Esc</kbd> to cancel selection. Scroll down, or press <kbd>=</kbd>/<kbd>.</kbd> to shrink the selection. Scroll up, or press <kbd>-</kbd>/<kbd>,</kbd>, to expand the selection.'
     const guide = document.body.appendChild(document.createElement("div"));
     guide.className = "mainonly-guide";
