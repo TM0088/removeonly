@@ -16,10 +16,12 @@
 	}
 
 	function onKeydown(event) {
-		if (event.key === "Escape") {
+		if (event.key === "F8") {
 			prevEl.style.outline = '';
-            cleanupEventListeners();
-		}
+            		cleanupEventListeners();
+		} else if (event.key === "Escape") {
+            		prevEl.style.display = 'none';
+        }
 	}
     
     function cleanupEventListeners() {
